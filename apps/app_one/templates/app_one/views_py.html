@@ -1,0 +1,53 @@
+Note: This is the original views.py
+
+from django.shortcuts import render, HttpResponse, redirect
+from decimal import Decimal
+from apps.app_one.models import Product
+
+secret_key = "checkitout"
+
+# def index(request):
+    # print("This is index in views.py")
+    # if 'chargeamount' not in request.session:
+        # request.session['chargeamount'] = 0
+        # request.session['counter'] = 0
+        # print("Chargeamount is", request.session['chargeamount'])
+    # return render(request, 'app_one/index.html')
+
+
+def clear(request):
+    print("This is clear function in views.py");
+    request.session['chargeamount'] = 0
+    request.session['counter'] = 0
+    return redirect('/')
+
+
+def checkout(request):
+    print("This is checkout in views.py")
+    print("Option is:", request.POST['quantity'])
+    request.session['tshirtprice'] = 19.99
+    request.session['sweaterprice'] = 29.99
+    request.session['cupprice'] = 4.99
+    request.session['bookprice'] = 49.99
+    if request.POST["item"] == "tshirt":
+        price = 19.99 * int(request.POST['quantity'])
+        # price = Decimal(price)
+        price = round(price, 2)
+    if request.POST["item"] == "sweater":
+        price = 29.99 * int(request.POST['quantity'])
+        price = round(price, 2)
+    if request.POST["item"] == "cup":
+        price = 4.99 * int(request.POST['quantity'])
+        print("Cup price is:", price)
+        price = round(price, 2)
+    if request.POST["item"] == "book":
+        price = 49.99 * int(request.POST['quantity'])
+        price = round(price, 2)
+
+    request.session['price'] = price
+    request.session['counter'] = request.session['counter'] + 1
+    print("Counter is:", request.session['counter'])
+    request.session['chargeamount'] = round(request.session['chargeamount'] + price, 2)
+    print("Your charge is:", request.session['chargeamount'])
+
+    return render(request, 'app_one/checkout.html')

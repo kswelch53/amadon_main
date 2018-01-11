@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta charset="UTF-8"> -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_one/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <title>Amadon index page</title>
+  </head>
+  <body>
+
+    <div class = "wrapper">
+      <h2>Amadon Store!</h2>
+
+      <div class = "orderitems">
+        <form action = "/send_order" method = "POST">
+          {% csrf_token %}
+          <table width=20%>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td height="40">Dojo t-shirt</td>
+                <td>$19.99</td>
+                <td><select>
+                  <option name="tshirt" value="1">1</option>
+                  <option name="tshirt" value="2">2</option>
+                  <option name="tshirt" value="3">3</option>
+                  <option name="tshirt" value="4">4</option>
+                  <option name="tshirt" value="5">5</option>
+                  <option name="tshirt" value="6">6</option>
+                  <option name="tshirt" value="7">7</option>
+                  <option name="tshirt" value="8">8</option>
+                  <option name="tshirt" value="9">9</option>
+                  <option name="tshirt" value="10">10</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </tr>
+
+              <tr>
+                <td height="40">Dojo Sweater</td>
+                <td>$29.99</td>
+                <td><select>
+                  <option name="sweater" value="1">1</option>
+                  <option name="sweater" value="2">2</option>
+                  <option name="sweater" value="3">3</option>
+                  <option name="sweater" value="4">4</option>
+                  <option name="sweater" value="5">5</option>
+                  <option name="sweater" value="6">6</option>
+                  <option name="sweater" value="7">7</option>
+                  <option name="sweater" value="8">8</option>
+                  <option name="sweater" value="9">9</option>
+                  <option name="sweater" value="10">10</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </tr>
+
+              <tr>
+                <td height="40">Dojo Cup</td>
+                <td>$4.99</td>
+                <td><select>
+                  <option name="cup" value="1">1</option>
+                  <option name="cup" value="2">2</option>
+                  <option name="cup" value="3">3</option>
+                  <option name="cup" value="4">4</option>
+                  <option name="cup" value="5">5</option>
+                  <option name="cup" value="6">6</option>
+                  <option name="cup" value="7">7</option>
+                  <option name="cup" value="8">8</option>
+                  <option name="cup" value="9">9</option>
+                  <option name="cup" value="10">10</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </tr>
+
+              <tr>
+                <td height="40">Dojo Algorithm Book</td>
+                <td>$49.99</td>
+                <td><select>
+                  <option name="book" value="1">1</option>
+                  <option name="book" value="2">2</option>
+                  <option name="book" value="3">3</option>
+                  <option name="book" value="4">4</option>
+                  <option name="book" value="5">5</option>
+                  <option name="book" value="6">6</option>
+                  <option name="book" value="7">7</option>
+                  <option name="book" value="8">8</option>
+                  <option name="book" value="9">9</option>
+                  <option name="book" value="10">10</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </tr>
+            </tbody>
+          </table>
+
+  </body>
+</html>

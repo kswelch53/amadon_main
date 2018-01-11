@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta charset="UTF-8"> -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_one/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <title>Amadon index page</title>
+  </head>
+  <body>
+
+    <div class = "wrapper">
+      <h2>Amadon Store!</h2>
+
+      <div class = "orderitems">
+        <table width=15%>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <form action = "/send_order" method = "POST">
+                {% csrf_token %}
+                <td height="40">Dojo T-shirt</td>
+                <td>${{ request.session.tshirtprice }}</td>
+                <td><input type="hidden" name="item" value="tshirt">
+                <select name="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </form>
+            </tr>
+
+            <tr>
+              <form action = "/send_order" method = "POST">
+                {% csrf_token %}
+                <td height="40">Dojo Sweater</td>
+                <td> ${{ request.session.sweaterprice }}</td>
+                <td><input = type="hidden" name="item" value="sweater">
+                <select name="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </form>
+            </tr>
+
+            <tr>
+              <form action = "/send_order" method = "POST">
+                {% csrf_token %}
+                <td height="40">Dojo Cup</td>
+                <td>${{ request.session.cupprice }}</td>
+                <td><input type="hidden" name="item" value="cup">
+                <select name="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </form>
+            </tr>
+
+            <tr>
+              <form action = "/send_order" method = "POST">
+                {% csrf_token %}
+                <td height="40">Dojo Algorithm Book</td>
+                <td>${{ request.session.bookprice }}</td>
+                <td><input type="hidden" name="item" value="book">
+                <select name="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select></td>
+                <td><input type="submit" value="Buy!"></td>
+              </form>
+            </tr>
+          </tbody>
+        </table>
+
+  </body>
+</html>
